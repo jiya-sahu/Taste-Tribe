@@ -5,7 +5,7 @@ import Itemcard from './Itemcard';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const [activeCart, setActiveCart] = useState(true);
+  const [activeCart, setActiveCart] = useState(false);
   const CartItems = useSelector((state)=>state.cart.cart);
   const totalqty = CartItems.reduce((totalqty,item)=>totalqty +item.qty,0)
   const totalprice = CartItems.reduce((totalprice,item)=>totalprice+item.qty*item.price,0)

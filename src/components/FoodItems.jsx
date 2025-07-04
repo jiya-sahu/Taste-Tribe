@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 const FoodItems = () => {
   const handleToast = (name) => toast.success(`Added ${name} `);
   const selectedCategory = useSelector((state) => state.category.category);
+  const search = useSelector((state) => state.search.query);
+  console.log(search);
+  
   return (
     <>
        <Toaster position="top-center" reverseOrder={false} />
@@ -12,9 +15,9 @@ const FoodItems = () => {
         {
           FoodData.filter((food) => {
             if(selectedCategory === "All") {
-              return food;
+              return food.name.toLowerCase().includes(search.toLowerCase());
             }else{
-              return food.category === selectedCategory;
+              return food.category === selectedCategory && food.name.toLowerCase().includes(search.toLowerCase());
             }
           })
           .map((food) => (

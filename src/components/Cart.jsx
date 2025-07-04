@@ -49,7 +49,6 @@ const Cart = () => {
         onClick={() => navigate("/success")}
         className='px-3 py-2 text-white font-bold  rounded-lg w-[90vw] lg:w-[18vw] mb-5 bg-green-500'> Checkout</button>
       </div>
-
     </div>
     <FaShoppingCart className={`rounded-full bg-white shadow-md text-5xl p-3 fixed bottom-4 right-4 ${totalqty>0 &&  "animate-bounce delay-500 transition-all"  }`} onClick={() => setActiveCart(!activeCart)}/>
 

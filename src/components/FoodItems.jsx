@@ -1,9 +1,13 @@
 import React from 'react'
 import FoodCard from './FoodCard'
 import FoodData from '../data/fooddata.js'
+import toast, { Toaster } from "react-hot-toast";
 const FoodItems = () => {
+  const handleToast = (name) => toast.success(`Added ${name} `);
   return (
-    <div className='flex flex-row  flex-wrap sm:[flex-col] gap-10 justify-center lg:justify-start mx-6 my-10 '>{
+    <>
+       <Toaster position="top-center" reverseOrder={false} />
+      <div className='flex flex-row  flex-wrap sm:[flex-col] gap-10 justify-center lg:justify-start mx-6 my-10 '>{
         FoodData.map((food)=>{
           return (<FoodCard 
           key={food.id}
@@ -13,11 +17,14 @@ const FoodItems = () => {
           img={food.img}
           category={food.category}
           price={food.price}
-          rating={food.rating}/>)
+          rating={food.rating}
+          handleToast={handleToast}/>
+        )
         })
       }
       
     </div>
+    </>
   )
 }
 
